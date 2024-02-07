@@ -1,3 +1,4 @@
+<!-- search-form.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +10,8 @@
 </head>
 <body>
     <div class="container mt-4">
-        <form action="search.php" method="POST">
+        <form onsubmit="search(); return false;">
+            <!-- Return false bcz it should avoid default form submisson -->
             <div class="form-group">
                 <label for="friendName">Friend Name:</label>
                 <input type="text" class="form-control" name="friendName" id="friendName" required>
@@ -18,9 +20,16 @@
         </form>
     </div>
 
-    <!-- Bootstrap JS and Popper.js (if needed) links -->
+  
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+    <script>
+        function search() {
+            var friendName = $('#friendName').val();
+            window.open('search-results.php?friendName=' + friendName, 'Search Results', 'width=400, height=300');
+        }
+    </script>
 </body>
 </html>

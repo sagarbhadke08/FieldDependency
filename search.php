@@ -5,17 +5,19 @@ $username = "root";
 $password = "";
 $dbname = "Dependency";
 
+
+
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-
+// Check the connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Process the form input
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get the Friend name from the form
-    $friendName = $_POST["friendName"];
+// Process the search query
+if (isset($_GET["friendName"])) {
+    // Get the Friend name from the query parameter
+    $friendName = $_GET["friendName"];
 
     // Prepare and execute the SQL query
     $sql = "SELECT * FROM data WHERE Friend = ?";
