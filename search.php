@@ -39,7 +39,6 @@ if (isset($_GET["friendName"])) {
         echo "No results found for Friend: " . $friendName;
     }
 
-    // Close the statement and connection
     $stmt->close();
     $conn->close();
 }
