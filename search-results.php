@@ -26,7 +26,7 @@
             $result = $stmt->get_result();
 
             if ($result->num_rows > 0) {
-                include('table-template.php'); // Include the HTML table template
+                include('table-template.php'); 
             } else {
                 echo '<p class="alert alert-warning">No results found for Friend: ' . $friendName . '</p>';
             }
