@@ -43,29 +43,27 @@ if (isset($_GET["friendName"])) {
     $conn->close();
 }
 ?>
+
+
 function kthSmallest(arr, l, r, k) {
-    // Function to perform QuickSort on the array
     function quickSort(arr, l, r) {
         if (l < r) {
-            // Partition the array
             let pi = partition(arr, l, r);
-
-            // Recursively sort elements before and after partition
             quickSort(arr, l, pi - 1);
             quickSort(arr, pi + 1, r);
         }
     }
 
-    // Function to partition the array
+   
     function partition(arr, l, r) {
-        let pivot = arr[r]; // Pivot element
-        let i = l - 1; // Index of smaller element
+        let pivot = arr[r]; 
+        let i = l - 1; 
 
         for (let j = l; j < r; j++) {
-            // If the current element is smaller than or equal to the pivot
+           
             if (arr[j] <= pivot) {
-                i++; // Increment the index of the smaller element
-                // Swap arr[i] and arr[j]
+                i++; 
+             
                 let temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;
@@ -80,14 +78,14 @@ function kthSmallest(arr, l, r, k) {
         return i + 1;
     }
 
-    // Perform QuickSort on the array
+    
     quickSort(arr, l, r);
 
-    // Return the kth smallest element
+   
     return arr[l + k - 1];
 }
 
-// Example usage:
+
 let arr1 = [7, 10, 4, 3, 20, 15];
 let k1 = 3;
 console.log(kthSmallest(arr1, 0, arr1.length - 1, k1)); // Output: 7
